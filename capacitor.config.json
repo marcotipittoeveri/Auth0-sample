@@ -1,0 +1,6 @@
+{
+  "appId": "com.everi.trilogymobile",
+  "appName":"auth0-sample",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Auth0AuthenticationImpl } from '../auth-service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private auth: Auth0AuthenticationImpl) {}
 
+  startAuth0(): void {
+    // this.auth.launchAuth0();
+    this.auth.quickstartAuth0();
+  }
 }
