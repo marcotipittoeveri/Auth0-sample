@@ -11,7 +11,7 @@ export class HomePage {
   constructor(private auth: Auth0AuthenticationImpl) {}
 
   startAuth0(): void {
-    // this.auth.launchAuth0();
-    this.auth.quickstartAuth0();
+    this.auth.login();
+    // this.auth.quickstartAuth0();
   }
 }

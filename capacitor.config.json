@@ -1,5 +1,5 @@
 {
-  "appId": "com.everi.trilogymobile",
+  "appId": "com.everi.auth0sample",
   "appName":"auth0-sample",
   "webDir": "www",
   "bundledWebRuntime": false

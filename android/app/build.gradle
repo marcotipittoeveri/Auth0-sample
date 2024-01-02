@@ -1,9 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
+    namespace "com.everi.auth0sample"
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.everi.trilogymobile"
+        applicationId "com.everi.auth0sample"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -26,6 +26,7 @@ export class Auth0AuthenticationImpl {
    * and signup.
    */
   launchAuth0(): Observable<void> {
+    console.log('>>> launchauth0')
     return from(
       this.auth0
         .loginWithRedirect({
@@ -131,7 +132,10 @@ export class Auth0AuthenticationImpl {
    */
   getAppUrlOpenObservable(): Observable<string> {
     this.appUrlOpened$ = new Observable((observer) => {
-      void App.addListener('appUrlOpen', ({ url }) => observer.next(url));
+      void App.addListener('appUrlOpen', ({ url }) => {
+        console.log('>>>appUrlOpen', url)
+        return observer.next(url)
+      });
       return () => App.removeAllListeners();
     });
     return this.appUrlOpened$;
@@ -151,11 +155,13 @@ export class Auth0AuthenticationImpl {
   }
 
   quickstartAuth0(): void {
+    debugger;
     console.log('>>>', environment)
     this.quickStartListener();
     this.auth0
       .loginWithRedirect({
         async openUrl(url: string) {
+          console.log('>>> url', url)
           await Browser.open({ url, windowName: '_self' });
         }
       })
@@ -164,9 +170,12 @@ export class Auth0AuthenticationImpl {
 
   quickStartListener(): void {
     App.addListener('appUrlOpen', ({ url }) => {
+      console.log('>>>appUrlOpen', url)
+      debugger;
       // Must run inside an NgZone for Angular to pick up the changes
       // https://capacitorjs.com/docs/guides/angular
       this.ngZone.run(() => {
+        console.log('>>>appUrlOpen', url)
         if (url?.startsWith(environment.auth0.redirectUri)) {
           // If the URL is an authentication callback URL..
           if (
@@ -184,5 +193,16 @@ export class Auth0AuthenticationImpl {
         }
       });
     });
+  }
+
+  login() {
+    console.log('>>>login')
+    this.auth0
+      .loginWithRedirect({
+        async openUrl(url: string) {
+          await Browser.open({ url, windowName: '_self' });
+        }
+      })
+      .subscribe();
   }
 }

@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">auth0-sample</string>
     <string name="title_activity_main">auth0-sample</string>
-    <string name="package_name">com.everi.trilogymobile</string>
-    <string name="custom_url_scheme">com.everi.trilogymobile</string>
+    <string name="package_name">com.everi.auth0sample</string>
+    <string name="custom_url_scheme">com.everi.auth0sample</string>
 </resources>

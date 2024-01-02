@@ -1,4 +1,4 @@
-package com.everi.trilogymobile;
+package com.everi.auth0sample;
 
 import com.getcapacitor.BridgeActivity;
 
